@@ -16,7 +16,6 @@
           class="ru.alishev.springcourse.MusicPlayer"
           scope="prototype">
 
-        <property name="music" ref="musicBean"/>
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
