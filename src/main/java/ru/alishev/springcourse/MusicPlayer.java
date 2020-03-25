@@ -13,23 +13,21 @@ public class MusicPlayer {
     private Music classicalMusic;
 
     @Autowired
-    public MusicPlayer(@Qualifier("rockMusic") Music rockMusic,
-                       @Qualifier("classicalMusic") Music classicalMusic) {
+    public MusicPlayer(ClassicalMusic rockMusic,
+                       RockMusic classicalMusic) {
         this.rockMusic = rockMusic;
         this.classicalMusic = classicalMusic;
     }
 
-    public String playMusic(MusicType musicType) {
+    public void playMusic(MusicType musicType) {
         Random random = new Random();
         if (musicType == MusicType.CLASSICAL) {
-            return "Playing: " +
-                    classicalMusic.getSongList().get(random.nextInt(classicalMusic.getSongList().size()));
+            System.out.println("Playing: " +
+                    classicalMusic.getSongList().get(random.nextInt(classicalMusic.getSongList().size())));
         }
         if (musicType == MusicType.ROCK) {
-            return "Playing: " +
-                    rockMusic.getSongList().get(random.nextInt(rockMusic.getSongList().size()));
+            System.out.println("Playing: " +
+                    rockMusic.getSongList().get(random.nextInt(rockMusic.getSongList().size())));
         }
-        return "error";
-
     }
 }
