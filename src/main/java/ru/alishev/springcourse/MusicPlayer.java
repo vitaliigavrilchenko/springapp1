@@ -13,8 +13,8 @@ public class MusicPlayer {
     private Music classicalMusic;
 
     @Autowired
-    public MusicPlayer(ClassicalMusic rockMusic,
-                       RockMusic classicalMusic) {
+    public MusicPlayer(ClassicalMusic classicalMusic,
+                       RockMusic rockMusic) {
         this.rockMusic = rockMusic;
         this.classicalMusic = classicalMusic;
     }
