@@ -1,8 +1,8 @@
 package ru.alishev.springcourse;
 
-public class RockMusic implements Music {
+public class RapMusic implements Music {
     @Override
     public String getSong() {
-        return "Smells like teen spirit";
+        return "Lose Yourself";
     }
 }

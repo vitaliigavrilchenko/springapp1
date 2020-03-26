@@ -1,24 +1,28 @@
 package ru.alishev.springcourse;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 
-@Component
+
+import java.util.List;
+import java.util.Random;
+
+
 public class MusicPlayer {
+    private List<Music> genres;
 
-    private Music music1;
-    private Music music2;
-
-    @Autowired
-    public MusicPlayer(@Qualifier("rockMusic") Music music1,
-                       @Qualifier("classicalMusic") Music music2) {
-        this.music1 = music1;
-        this.music2 = music2;
+    public MusicPlayer(List<Music> genres) {
+        this.genres = genres;
     }
 
-    public String playMusic() {
-        return "Playing: " + music1.getSong() + ", " + music2.getSong();
+    public List<Music> getGenres() {
+        return genres;
+    }
 
+    public void setGenres(List<Music> genres) {
+        this.genres = genres;
+    }
+
+    public void playMusic(){
+        Random random = new Random();
+        System.out.println(genres.get(random.nextInt(genres.size())).getSong());
     }
 }
